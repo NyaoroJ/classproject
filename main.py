@@ -1,25 +1,22 @@
-# Sample student data dictionary (student ID as the key and the corresponding year as the value)
-student_data = {
-    "2023XYZ1234": "3rd year",
-    "2022ABC5678": "2nd year",
-    "2021DEF9012": "1st year",
+# Sample student fee status data (student IDs as keys and fee status as values)
+fee_status_data = {
+    "2023XYZ1234": "Cleared",
+    "2022ABC5678": "Cleared",
+    "2021DEF9012": "Not Cleared",
 }
-def verify_student_id_and_year():
+
+
+def verify_fee_status():
     student_id = input("Enter your student ID: ")
 
-    if student_id in student_data:
-        year = student_data[student_id]
-        print(f"Student ID {student_id} is in the {year}.")
-        marks = int(input("Enter your marks: "))
-
-        # Your grading logic here (e.g., pass/fail based on marks)
-        if marks >= 50:
-            print("You have passed the exam.")
+    # Check if the input ID is in the fee_status_data dictionary
+    if student_id in fee_status_data:
+        fee_status = fee_status_data[student_id]
+        if fee_status == "Cleared":
+            print(f"Student ID {student_id} has cleared the fee.")
         else:
-            print("You have failed the exam.")
+            print(f"Student ID {student_id} has not cleared the fee.")
     else:
         print("Invalid student ID. Please check and try again.")
 
-
-# Example usage:
-verify_student_id_and_year()
+verify_fee_status()
